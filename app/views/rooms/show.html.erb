@@ -1,0 +1,14 @@
+<h1>Welcome</h1>
+<ul class="list-group">
+  <% @rooms.each do |room| %>
+    <li class="list-group-item">
+      <span class="tag tag-default tag-pill float-xs-right">12</span>
+      <%= link_to room.name, room_path(room) %>
+    </li>
+  <% end %>
+</ul>
+
+<%= form_for Room.new do |f| %>
+  <%= f.text_field :name, class: 'form-control' %>
+  <%= f.submit 'Create room', class: 'btn btn-primary' %>
+<% end %>
