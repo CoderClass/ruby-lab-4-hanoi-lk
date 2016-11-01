@@ -7,11 +7,12 @@ class MessagesController < ApplicationController
 		respond_to do |format|
 			format.html
 			format.json {render json: @messages}
+			format.js
 		end
 	end
 
 	def create
-		
+
 		load_room
 		@message = @room.messages.build(message_params)
 		# @message.content = params[:content]
@@ -23,7 +24,7 @@ class MessagesController < ApplicationController
 	def load_room
 		@room = Room.find(params[:room_id])
 	end
-	private 
+	private
 
 	def message_params
 		params.require(:message).permit(:content,:username)

@@ -1,12 +1,7 @@
 <h1>Message List</h1>
 
 <ul class="list-group messages">
-  <% @messages.each do |message| %>
-    <li class="list-group-item">
-      <span class="tag tag-default tag-pill float-xs-right">12</span>
-      <%= message.content %>
-    </li>
-  <% end %>
+  <%= render @messages %>
 </ul>
 
 <div class="form-inline">
@@ -19,5 +14,7 @@
 </div>
 </div>
 <script>
-setInterval(updateMessagesViaJSON,3000)
+// setInterval(updateMessagesViaJSON,3000)
+setInterval(updateMessagesViaJS,3000)
+// $.getScript('messages.js');
 </script>

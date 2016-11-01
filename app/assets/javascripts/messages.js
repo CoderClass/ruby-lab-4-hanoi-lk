@@ -14,3 +14,7 @@ window.updateMessagesViaJSON = function() {
 		}
   })
 }
+
+window.updateMessagesViaJS = function(){
+  $.getScript('messages.js');
+}
