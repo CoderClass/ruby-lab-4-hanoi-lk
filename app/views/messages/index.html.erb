@@ -1,20 +1,19 @@
-<h1>Message List</h1>
+<h1>Room: <%= @room.name %></h1>
 
-<ul class="list-group messages">
+<div class="messages">
   <%= render @messages %>
-</ul>
+</div>
 
-<div class="form-inline">
-<div class="form-group">
-	<%= form_for [@room,Message.new] do |f| %>
-		<%= f.text_field :content, class: 'form-control' %>
-		<%= f.text_field :username, class: 'form-control' %>
-		<%= f.submit 'Send', class: 'btn btn-primary' %>
+
+	<%= form_for [@room,Message.new], remote: true do |f| %>
+	<div class="form-inline">
+		<%= f.text_field :content, class: 'form-control', id: 'msg_text_field' %>
+		<%= f.submit 'Send', class: 'btn btn-primary', data:{disable_with: "Adding...."} %>
+	</div>
 	<% end %>
-</div>
-</div>
-<script>
+
+<script type="text/javascript" charset="utf-8">
 // setInterval(updateMessagesViaJSON,3000)
-setInterval(updateMessagesViaJS,3000)
+// setInterval(updateMessagesViaJS,3000)
 // $.getScript('messages.js');
 </script>

@@ -16,5 +16,5 @@ window.updateMessagesViaJSON = function() {
 }
 
 window.updateMessagesViaJS = function(){
-  $.getScript('messages.js');
+  $.ajax({url: window.location.pathname,dataType: 'script'});
 }
